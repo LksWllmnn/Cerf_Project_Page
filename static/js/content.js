@@ -1,16 +1,16 @@
 
 // TODO: edit your page here, not in the html file
 // head
-var TITLE = "Student Thesis Project Page";
-var FIRST_AUTHOR = "The First Author";
+var TITLE = "CeRF - Context specific language embedded visual navigation Support in Radiance Fields";
+var FIRST_AUTHOR = "Lukas Willmann";
 var FIRST_AUTHOR_LINK = "tbd";
-var PROGRAM_NAME = "Study program name and year/semester";
-var SUPERVISOR = "The supervisor";
-var SUPERVISOR_LINK = "tbd";
-var SECOND_SUPERVISOR = "Second supervisor";
-var SECOND_SUPERVISOR_LINK = "tbd";
+var PROGRAM_NAME = "Master Thesis 2024/2025";
+var SUPERVISOR = "Prof. Dr. Uwe Hahne";
+var SUPERVISOR_LINK = "https://www.hs-furtwangen.de/zukunft-verbinden/personen/profil/2932-uwehahne";
+var SECOND_SUPERVISOR = "Prof. Dr. Thomas Schlegel";
+var SECOND_SUPERVISOR_LINK = "https://www.hs-furtwangen.de/zukunft-verbinden/personen/profil/3129-thomasschlegel";
 // link buttons
-var hideThesis = false;
+var hideThesis = true;
 var THESIS_LINK = "tbd";
 var hideSupplementary = true;
 var SUPPLEMENTARY_LINK = "tbd";
@@ -19,26 +19,27 @@ var GITHUB_LINK = "tbd";
 var hideArxiv = true;
 var ARXIV_LINK = "tbd";
 // teaser image or video
-var showTeaserVideo = false;  // preferable exclusive
+var showTeaserVideo = true;  // preferable exclusive
 var showTeaserImage = false; // either video or image
-var TEASER_VIDEO_LINK = "static/videos/banner_video.mp4";
+var TEASER_VIDEO_LINK = "static/videos/B_Building.mp4";
 var TEASER_IMAGE_LINK = "static/images/noteaser.jpg";
-var TEASER_TEXT = "Describe the teaser image or video. It should be self-explaining so that the image/video plus this text make sense without reading the abstract or the full thesis. The image/video has to be impressive as it is the first impression a visitor gets.";
+var TEASER_TEXT = "Visual highlighting in a 3D-Scene of a specific building using the text input “B-Building”.";
 // abstract
-var ABSTRACT = "<p>Your abstract text comes here. Use less than 1920 characters and summarize your work here. State your contribution to the scientific community or the main selling point of your thesis.</p><p>It may contain multiple paragraphs, but try to avoid it.</p>"
+var ABSTRACT = "<p>In recent years, NeRF and Gaussian Splatting techniques have gained significant traction within the field of computer vision. Numerous academic studies have already extended these techniques. Among them, methods such as LeRF and LangSplat have successfully integrated language with 3D scenes and their geometry.</p><p>This study explores how a visual orientation aid can be effectively implemented within a radiance field scene representing the Furtwangen campus. The concept of the campus scene involves users standing before a screen displaying the scene, through which they can navigate interactively.</p><p>Building upon LeRF, LangSplat, and additional image recognition techniques, these methods are applied to a dummy dataset and evaluated for their quality and suitability in the specific use case of navigation within a radiance field scene. The findings indicate that LeRF is less suitable than LangSplat, as it is based on NeRF and thus does not achieve the fast rendering results required for this application. While LangSplat produces high-quality results, the rendering time remains substantial, precluding the creation of a live image within a navigable scene. However, individual still frames of the scene can be generated. Other image recognition techniques that do not employ 3D language embedding are more easily adaptable to various software tools, as they are not reliant on radiance field training. However, they encounter challenges in accurately capturing objects within such scenes.</p>"
+
 // image carousel
 var showImageCarousel = true;
-var icImageLinks = ["static/images/carousel2.jpg", "static/images/carousel3.jpg", "static/images/carousel4.jpg"]; 
-var icImageDescriptions = ["This is carousel2.jpg...", "This is carousel3.jpg", "This is carousel4.jpg"]; 
+var icImageLinks = ["static/images/LangSplat_Horizon.png", "static/images/Fuwa_B-Building_0000.png"]; 
+var icImageDescriptions = ["LangSplat-scene with highlighted horizon", "Single Image of the B-Building to finetune CLIP"]; 
 // YouTube video
 var hideYouTubeVideo = true;
 var YOUTUBE_LINK = "https://www.youtube.com/embed/W3I3kAg2J7w?si=oVCFsIV7Xg_l8Z88"
 // Video carousel
 var showVideoCarousel = true;
-var VIDEO_CAROUSEL_HEADING = "Heading of the video carousel"
-var vcVideoLinks = ["static/videos/carousel1.mp4", "static/videos/carousel2.mp4", "static/videos/carousel3.mp4"];
+var VIDEO_CAROUSEL_HEADING = "Examples of visual highlighting with LeRF and finetuned CLIP model"
+var vcVideoLinks = ["static/videos/C_Building.mp4", "static/videos/H_Building.mp4", "static/videos/Z_Building.mp4"];
 // An embedded PDF document (could be a poster)
-var hidePDF = false;
+var hidePDF = true;
 var PDF_HEADING = "A PDF document"
 var PDF_LINK = 'static/pdfs/sample.pdf';
 // BibTeX code
@@ -113,8 +114,13 @@ if (showImageCarousel) {
     }
 }
 // YouTube video
-document.getElementById('YOUTUBE').hidden = hideYouTubeVideo;
-document.getElementById('YOUTUBE_LINK').setAttribute("src", YOUTUBE_LINK);
+try{
+    document.getElementById('YOUTUBE_LINK').setAttribute("src", YOUTUBE_LINK);
+    document.getElementById('YOUTUBE').hidden = hideYouTubeVideo;
+} catch (e) {
+    console.log("no Youtube element")
+}
+
 // Video carousel
 if (showVideoCarousel) {
     var videoCarouselSection = document.getElementById('VIDEO_CAROUSEL');
@@ -157,9 +163,14 @@ if (showVideoCarousel) {
     }
 }
 // PDF preview
-document.getElementById('PDF_PREVIEW').hidden = hidePDF;
-document.getElementById('PDF_HEADING').innerHTML = PDF_HEADING;
-document.getElementById('PDF_LINK').setAttribute('src',PDF_LINK);
+try{
+    document.getElementById('PDF_PREVIEW').hidden = hidePDF;
+    document.getElementById('PDF_HEADING').innerHTML = PDF_HEADING;
+    document.getElementById('PDF_LINK').setAttribute('src',PDF_LINK);
+} catch(e) {
+    console.log("no PDF Element")
+}
+
 
 // BIBTEX
 document.getElementById('BIBTEX').hidden = hideBibTeX;
