@@ -28,16 +28,25 @@ var TEASER_TEXT = "Visual highlighting in a 3D-Scene of a specific building usin
 var ABSTRACT = "<p>In recent years, NeRF and Gaussian Splatting techniques have gained significant traction within the field of computer vision. Numerous academic studies have already extended these techniques. Among them, methods such as LeRF and LangSplat have successfully integrated language with 3D scenes and their geometry.</p><p>This study explores how a visual orientation aid can be effectively implemented within a radiance field scene representing the Furtwangen campus. The concept of the campus scene involves users standing before a screen displaying the scene, through which they can navigate interactively.</p><p>Building upon LeRF, LangSplat, and additional image recognition techniques, these methods are applied to a dummy dataset and evaluated for their quality and suitability in the specific use case of navigation within a radiance field scene. The findings indicate that LeRF is less suitable than LangSplat, as it is based on NeRF and thus does not achieve the fast rendering results required for this application. While LangSplat produces high-quality results, the rendering time remains substantial, precluding the creation of a live image within a navigable scene. However, individual still frames of the scene can be generated. Other image recognition techniques that do not employ 3D language embedding are more easily adaptable to various software tools, as they are not reliant on radiance field training. However, they encounter challenges in accurately capturing objects within such scenes.</p>"
 
 // image carousel
-var showImageCarousel = true;
+var showImageCarousel = false;
 var icImageLinks = ["static/images/LangSplat_Horizon.png", "static/images/Fuwa_B-Building_0000.png"]; 
 var icImageDescriptions = ["LangSplat-scene with highlighted horizon", "Single Image of the B-Building to finetune CLIP"]; 
+
+// image carousel Diagrams
+var showImageCarousel_Diagrams = true;
+var icImageLinks_Diagrams = ["static/images/LangSplat-Schema_s.png", "static/images/Lerf-Schema_s.png", "static/images/ResNet-Schema_s.png"]; 
+var icImageDescriptions_Diagrams = [
+    "The LangSplat-Schema, showing the generation of the Dataset, finetuning of the CLIP-Model and training of the Gaussian Splat and Langsplat. The Result are three images of the same Frame with different Detail segmentation.", 
+    "The LeRF-Schema, showing the generation of the Dataset, finetuning of the CLIP-Model and training of the LeRF Model in NerfStudio. Result is a Frame from the rendered Video with a clear Focus un the B-Building", 
+    "The ResNet-Schema, showing the generation of a Video with Gaussian Splatting and identification of the fitting mask with a finetuned ResNet50 Model"]; 
+
 // YouTube video
 var hideYouTubeVideo = true;
 var YOUTUBE_LINK = "https://www.youtube.com/embed/W3I3kAg2J7w?si=oVCFsIV7Xg_l8Z88"
 // Video carousel
 var showVideoCarousel = true;
 var VIDEO_CAROUSEL_HEADING = "Examples of visual highlighting with LeRF and finetuned CLIP model"
-var vcVideoLinks = ["static/videos/C_Building.mp4", "static/videos/H_Building.mp4", "static/videos/Z_Building.mp4"];
+var vcVideoLinks = ["static/videos/C_Building_s.mp4", "static/videos/H_Building_s.mp4", "static/videos/Z_Building_s.mp4", "static/videos/Vergleich_B-Building.mp4"];
 // An embedded PDF document (could be a poster)
 var hidePDF = true;
 var PDF_HEADING = "A PDF document"
@@ -83,6 +92,7 @@ if (showTeaserVideo) {
 document.getElementById('TEASER_TEXT').innerHTML = TEASER_TEXT;
 // abstract
 document.getElementById('ABSTRACT').innerHTML = ABSTRACT;
+
 // image carousel
 if (showImageCarousel) {
     var carouselSection = document.getElementById('IMAGE_CAROUSEL');
@@ -111,6 +121,38 @@ if (showImageCarousel) {
         carouselItem.appendChild(img);
         carouselItem.appendChild(caption);
         carouselResults.appendChild(carouselItem);
+    }
+}
+
+// image carousel Diagram
+if (showImageCarousel_Diagrams) {
+    console.log("Diagrams!!")
+    var carouselSection_Diagrams = document.getElementById('IMAGE_CAROUSEL_Diagrams');
+    var carouselInner_Diagrams = document.createElement('div');
+    carouselInner_Diagrams.className = 'hero-body';
+    carouselSection_Diagrams.appendChild(carouselInner_Diagrams);
+    var carouselContainer_Diagrams = document.createElement('div');
+    carouselContainer_Diagrams.className = 'container';
+    carouselInner_Diagrams.appendChild(carouselContainer_Diagrams);
+    var carouselResults_Diagrams = document.createElement('div');
+    carouselResults_Diagrams.id = 'results-carousel_diagrams';
+    carouselResults_Diagrams.className = 'carousel results-carousel';
+    carouselContainer_Diagrams.appendChild(carouselResults_Diagrams);
+    for (var i = 0; i < icImageLinks_Diagrams.length; i++) {
+        var carouselItem_Diagrams = document.createElement('div');
+        carouselItem_Diagrams.className = 'item';
+
+        var img_Diagrams = document.createElement('img');
+        img_Diagrams.src = icImageLinks_Diagrams[i];
+        img_Diagrams.alt = icImageDescriptions_Diagrams[i];
+
+        var caption_Diagrams = document.createElement('h2');
+        caption_Diagrams.className = 'subtitle has-text-centered';
+        caption_Diagrams.innerHTML = icImageDescriptions_Diagrams[i];
+
+        carouselItem_Diagrams.appendChild(img_Diagrams);
+        carouselItem_Diagrams.appendChild(caption_Diagrams);
+        carouselResults_Diagrams.appendChild(carouselItem_Diagrams);
     }
 }
 // YouTube video
