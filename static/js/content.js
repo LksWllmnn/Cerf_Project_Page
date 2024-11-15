@@ -34,7 +34,7 @@ var icImageDescriptions = ["LangSplat-scene with highlighted horizon", "Single I
 
 // image carousel Diagrams
 var showImageCarousel_Diagrams = true;
-var icImageLinks_Diagrams = ["static/images/LangSplat-Schema_s.png", "static/images/Lerf-Schema_s.png", "static/images/ResNet-Schema_s.png"]; 
+var icImageLinks_Diagrams = ["static/images/LangSplat-Schema_s.png", "static/images/LeRF-Schema_s.png", "static/images/ResNet-Schema_s.png"]; 
 var icImageDescriptions_Diagrams = [
     "The LangSplat-Schema, showing the generation of the Dataset, finetuning of the CLIP-Model and training of the Gaussian Splat and Langsplat. The Result are three images of the same Frame with different Detail segmentation.", 
     "The LeRF-Schema, showing the generation of the Dataset, finetuning of the CLIP-Model and training of the LeRF Model in NerfStudio. Result is a Frame from the rendered Video with a clear Focus un the B-Building", 
