@@ -1,7 +1,7 @@
 
 // TODO: edit your page here, not in the html file
 // head
-var TITLE = "CeRF - Context specific language embedded visual navigation Support in Radiance Fields";
+var TITLE = "CeRF - Context specific language embedded visual navigation Support in Radiance Fields (Work in Progress)";
 var FIRST_AUTHOR = "Lukas Willmann";
 var FIRST_AUTHOR_LINK = "tbd";
 var PROGRAM_NAME = "Master Thesis 2024/2025";
