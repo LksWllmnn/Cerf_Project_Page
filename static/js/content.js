@@ -45,8 +45,8 @@ var hideYouTubeVideo = true;
 var YOUTUBE_LINK = "https://www.youtube.com/embed/W3I3kAg2J7w?si=oVCFsIV7Xg_l8Z88"
 // Video carousel
 var showVideoCarousel = true;
-var VIDEO_CAROUSEL_HEADING = "Examples of visual highlighting with LeRF and finetuned CLIP model"
-var vcVideoLinks = ["static/videos/C_Building_s.mp4", "static/videos/H_Building_s.mp4", "static/videos/Z_Building_s.mp4", "static/videos/Vergleich_B-Building.mp4"];
+var VIDEO_CAROUSEL_HEADING = "Examples of visual highlighting with LeRF and finetuned CLIP model, Langsplat, SAM and RESNET and M-RCNN"
+var vcVideoLinks = ["static/videos/C_Building_s.mp4", "static/videos/H_Building_s.mp4", "static/videos/Z_Building_s.mp4", "static/videos/Vergleich_B-Building.mp4", "static/videos/m_rcnn_1.mp4"];
 // An embedded PDF document (could be a poster)
 var hidePDF = true;
 var PDF_HEADING = "A PDF document"
