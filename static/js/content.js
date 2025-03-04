@@ -14,8 +14,8 @@ var hideThesis = true;
 var THESIS_LINK = "tbd";
 var hideSupplementary = true;
 var SUPPLEMENTARY_LINK = "tbd";
-var hideGithub = true;
-var GITHUB_LINK = "tbd";
+var hideGithub = false;
+var GITHUB_LINK = "https://github.com/LksWllmnn/finetune_eval_th";
 var hideArxiv = true;
 var ARXIV_LINK = "tbd";
 // teaser image or video
@@ -25,7 +25,7 @@ var TEASER_VIDEO_LINK = "static/videos/B_Building.mp4";
 var TEASER_IMAGE_LINK = "static/images/noteaser.jpg";
 var TEASER_TEXT = "Visual highlighting in a 3D-Scene of a specific building using the text input “B-Building”.";
 // abstract
-var ABSTRACT = "<p>In recent years, NeRF and Gaussian Splatting techniques have gained significant traction within the field of computer vision. Numerous academic studies have already extended these techniques. Among them, methods such as LeRF and LangSplat have successfully integrated language with 3D scenes and their geometry.</p><p>This study explores how a visual orientation aid can be effectively implemented within a radiance field scene representing the Furtwangen campus. The concept of the campus scene involves users standing before a screen displaying the scene, through which they can navigate interactively.</p><p>Building upon LeRF, LangSplat, and additional image recognition techniques, these methods are applied to a dummy dataset and evaluated for their quality and suitability in the specific use case of navigation within a radiance field scene. The findings indicate that LeRF is less suitable than LangSplat, as it is based on NeRF and thus does not achieve the fast rendering results required for this application. While LangSplat produces high-quality results, the rendering time remains substantial, precluding the creation of a live image within a navigable scene. However, individual still frames of the scene can be generated. Other image recognition techniques that do not employ 3D language embedding are more easily adaptable to various software tools, as they are not reliant on radiance field training. However, they encounter challenges in accurately capturing objects within such scenes.</p>"
+var ABSTRACT = "<p>In this work, different concepts are compared with which objects with abstract names in 3D scenes can be semantically ``recognized`` and visually highlighted. The comparison is made in the context of a prototypical representation of the Furtwangen campus in a 3D scene. The goal is for the techniques to visually highlight or mark the corresponding objects based on the abstract names that are entered by the user as text. For this purpose, the methods <u><a href='https://arxiv.org/abs/2303.09553'>LeRF</a></u> and <u><a href='https://arxiv.org/abs/2405.15518'>Feature-Splatting</a></u>, which embed language features in a 3D radiance field, were trained with <u><a href='https://arxiv.org/abs/1703.06870'>Mask R-CNN</a></u> and a combination of <u><a href='https://arxiv.org/abs/1512.03385'>ResNet</a></u> and <u><a href='https://arxiv.org/abs/2304.02643'>SAM</a></u> segmentation compared. The latter extracts objects from 2D images. For this purpose, data sets were generated that consist of RGB and semantically segmented images of a virtual scenery that conceptually represents the Furtwangen campus. The respective models were trained and evaluated with these data. The images containing the marked objects were evaluated based on the IoU value and the F1 score. The analysis showed that <a>Mask R-CNN</a> achieves significantly better results with small data sets than alternative methods. However, since semantic segmentation for real-world data poses significant challenges, concepts for performing highlighting for the real campus as a Radiance Field were presented at the end of the paper.</p>"
 
 // image carousel
 var showImageCarousel = false;
