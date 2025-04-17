@@ -1,7 +1,7 @@
 
 // TODO: edit your page here, not in the html file
 // head
-var TITLE = "CeRF - Context specific language embedded visual navigation Support in Radiance Fields (Work in Progress)";
+var TITLE = "Object recognition in radiance fields: A comparison of language embedding methods (Work in Progress)";
 var FIRST_AUTHOR = "Lukas Willmann";
 var FIRST_AUTHOR_LINK = "tbd";
 var PROGRAM_NAME = "Master Thesis 2024/2025";
@@ -21,11 +21,11 @@ var ARXIV_LINK = "tbd";
 // teaser image or video
 var showTeaserVideo = true;  // preferable exclusive
 var showTeaserImage = false; // either video or image
-var TEASER_VIDEO_LINK = "static/videos/B_Building.mp4";
+var TEASER_VIDEO_LINK = "static/videos/output.mp4";
 var TEASER_IMAGE_LINK = "static/images/noteaser.jpg";
-var TEASER_TEXT = "Visual highlighting in a 3D-Scene of a specific building using the text input “B-Building”.";
+var TEASER_TEXT = "Visual highlighting of multiple Buildings in a prototypical HFU-Campus 3D-Scene.";
 // abstract
-var ABSTRACT = "<p>In this work, different concepts are compared with which objects with abstract names in 3D scenes can be semantically ``recognized`` and visually highlighted. The comparison is made in the context of a prototypical representation of the Furtwangen campus in a 3D scene. The goal is for the techniques to visually highlight or mark the corresponding objects based on the abstract names that are entered by the user as text. For this purpose, the methods <u><a href='https://arxiv.org/abs/2303.09553'>LeRF</a></u> and <u><a href='https://arxiv.org/abs/2405.15518'>Feature-Splatting</a></u>, which embed language features in a 3D radiance field, were trained with <u><a href='https://arxiv.org/abs/1703.06870'>Mask R-CNN</a></u> and a combination of <u><a href='https://arxiv.org/abs/1512.03385'>ResNet</a></u> and <u><a href='https://arxiv.org/abs/2304.02643'>SAM</a></u> segmentation compared. The latter extracts objects from 2D images. For this purpose, data sets were generated that consist of RGB and semantically segmented images of a virtual scenery that conceptually represents the Furtwangen campus. The respective models were trained and evaluated with these data. The images containing the marked objects were evaluated based on the IoU value and the F1 score. The analysis showed that <a>Mask R-CNN</a> achieves significantly better results with small data sets than alternative methods. However, since semantic segmentation for real-world data poses significant challenges, concepts for performing highlighting for the real campus as a Radiance Field were presented at the end of the paper.</p>"
+var ABSTRACT = "<p>In this work, different concepts are compared with which objects with abstract names in 3D scenes can be semantically ``recognized`` and visually highlighted. The comparison is made in the context of a prototypical representation of the Furtwangen campus in a 3D scene. The goal is for the techniques to visually highlight or mark the corresponding objects based on the abstract names that are entered by the user as text. For this purpose, the methods <u><a href='https://arxiv.org/abs/2303.09553'>LeRF</a></u> and <u><a href='https://arxiv.org/abs/2405.15518'>Feature Splatting</a></u>, which embed language features in a 3D radiance field, were trained with <u><a href='https://arxiv.org/abs/1703.06870'>Mask R-CNN</a></u> and a combination of <u><a href='https://arxiv.org/abs/1512.03385'>ResNet</a></u> and <u><a href='https://arxiv.org/abs/2304.02643'>SAM</a></u> segmentation compared. The latter extracts objects from 2D images. For this purpose, data sets were generated that consist of RGB and semantically segmented images of a virtual scenery that conceptually represents the Furtwangen campus. The respective models were trained and evaluated with these data. The images containing the marked objects were evaluated based on the IoU value and the F1 score. The analysis showed that <a>Mask R-CNN</a> achieves significantly better results with small data sets than alternative methods. However, since semantic segmentation for real-world data poses significant challenges, concepts for performing highlighting for the real campus as a Radiance Field were presented at the end of the paper.</p>"
 
 // image carousel
 var showImageCarousel = false;
@@ -33,20 +33,23 @@ var icImageLinks = ["static/images/LangSplat_Horizon.png", "static/images/Fuwa_B
 var icImageDescriptions = ["LangSplat-scene with highlighted horizon", "Single Image of the B-Building to finetune CLIP"]; 
 
 // image carousel Diagrams
+var IMAGE_CAROUSEL_HEADING = "Concepts"
 var showImageCarousel_Diagrams = true;
-var icImageLinks_Diagrams = ["static/images/LangSplat-Schema_s.png", "static/images/LeRF-Schema_s.png", "static/images/ResNet-Schema_s.png"]; 
-var icImageDescriptions_Diagrams = [
-    "The LangSplat-Schema, showing the generation of the Dataset, finetuning of the CLIP-Model and training of the Gaussian Splat and Langsplat. The Result are three images of the same Frame with different Detail segmentation.", 
-    "The LeRF-Schema, showing the generation of the Dataset, finetuning of the CLIP-Model and training of the LeRF Model in NerfStudio. Result is a Frame from the rendered Video with a clear Focus un the B-Building", 
-    "The ResNet-Schema, showing the generation of a Video with Gaussian Splatting and identification of the fitting mask with a finetuned ResNet50 Model"]; 
+var icImageLinks_Diagrams = ["static/images/lerf_16z8.png", "static/images/fs_16z8.png", "static/images/resnet_1080.png", "static/images/mrcnn_16z8.png"]; 
+var icImageDescriptions_Diagrams = [ 
+    "The scheme illustrates the procedure of the LeRF approach. First, a CLIP model is generated and the weights integrated into the LeRF lite technique. Subsequently, the Radiance Field is trained using the LeRF lite technique.", 
+    "The scheme illustrates the procedure of the Feature Splatting approach. First, a CLIP model is generated and the weights are inserted into the Feature Splatting technique. Subsequently, the Radiance Field is trained using this technique and the images are rendered. Furthermore, a cache is generated for the language embeddings.",
+    "The diagram illustrates the ResNet + SAM approach. First, a ResNet model is finetuned. At the same time, a Gsplat model is trained in Nerfstudio. The rendered images are then segmented into different segments using SAM. These segments are classified using ResNet and finally reassembled into one image.",
+    "The diagram illustrates the procedure of the Mask R-CNN approach. First, a Mask R-CNN model is finetuned. Separately, a Gsplat model is trained in Nerfstudio. Afterwards, the rendered images are analyzed with Mask R-CNN and the masks are generated."
+]; 
 
 // YouTube video
 var hideYouTubeVideo = true;
 var YOUTUBE_LINK = "https://www.youtube.com/embed/W3I3kAg2J7w?si=oVCFsIV7Xg_l8Z88"
 // Video carousel
 var showVideoCarousel = true;
-var VIDEO_CAROUSEL_HEADING = "Examples of visual highlighting with LeRF and finetuned CLIP model, Langsplat, SAM and RESNET and M-RCNN"
-var vcVideoLinks = ["static/videos/C_Building_s.mp4", "static/videos/H_Building_s.mp4", "static/videos/Z_Building_s.mp4", "static/videos/Vergleich_B-Building.mp4", "static/videos/m_rcnn_1.mp4"];
+var VIDEO_CAROUSEL_HEADING = "Examples of visual highlighting with LeRF and finetuned CLIP model, Feature Splatting, ResNet + SAM and M-RCNN"
+var vcVideoLinks = ["static/videos/lerf_vid.mp4", "static/videos/fs_vid.mp4", "static/videos/resnet_vid.mp4", "static/videos/mrcnn_vid.mp4"];
 // An embedded PDF document (could be a poster)
 var hidePDF = true;
 var PDF_HEADING = "A PDF document"
@@ -99,9 +102,11 @@ if (showImageCarousel) {
     var carouselInner = document.createElement('div');
     carouselInner.className = 'hero-body';
     carouselSection.appendChild(carouselInner);
+    
     var carouselContainer = document.createElement('div');
     carouselContainer.className = 'container';
     carouselInner.appendChild(carouselContainer);
+    
     var carouselResults = document.createElement('div');
     carouselResults.id = 'results-carousel';
     carouselResults.className = 'carousel results-carousel';
@@ -134,6 +139,10 @@ if (showImageCarousel_Diagrams) {
     var carouselContainer_Diagrams = document.createElement('div');
     carouselContainer_Diagrams.className = 'container';
     carouselInner_Diagrams.appendChild(carouselContainer_Diagrams);
+    // imageCarouselHeading.id= 'IMAGE_CAROUSEL_HEADING';
+    // imageCarouselHeading.className= 'title is-3';
+    // imageCarouselHeading.textContent = IMAGE_CAROUSEL_HEADING;
+    // carouselContainer_Diagrams.appendChild(imageCarouselHeading);
     var carouselResults_Diagrams = document.createElement('div');
     carouselResults_Diagrams.id = 'results-carousel_diagrams';
     carouselResults_Diagrams.className = 'carousel results-carousel';

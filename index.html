@@ -115,7 +115,7 @@
                       <span class="icon">
                         <i class="fab fa-github"></i>
                       </span>
-                      <span>Feature-Splatting Variant</span>
+                      <span>Feature Splatting Variant</span>
                     </a>
                   </span>
 
@@ -155,7 +155,7 @@
         <div class="hero-body">
           <video poster id="tree" autoplay controls muted loop height="100%">
             <!-- Your video here -->
-            <source id="TEASER_VIDEO" src="static/videos/B_Building.mp4"
+            <source id="TEASER_VIDEO" src="static/videos/output.mp4"
               type="video/mp4">
           </video>
           <img id="TEASER_IMAGE" src="static/images/carousel1.jpg" hidden="true">
@@ -198,13 +198,116 @@
     <!-- Image carousel -->
     <section id="IMAGE_CAROUSEL" class="hero is-small">
       
+        
+      
     </section>
     <!-- End image carousel -->
 
-    <!-- Image carousel_Diagrams -->
-    <section id="IMAGE_CAROUSEL_Diagrams" class="hero is-small">
-      
+    <section id="Scene" class="hero is-small">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">HFU prototype scene</h2>
+            <p>To avoid the difficulties of a real scene, such as depth of field, 
+              overexposure due to direct sunlight hitting the camera lens, motion 
+              blur due to camera movement, movement in the scene due to e.g. wind 
+              or shadows caused by the person holding the camera in some perspectives, 
+              a virtual scene was created. This made it possible to generate images 
+              that have no depth of field or light artifacts, such as those caused 
+              by direct sunlight entering the lens. Blender is a program for 3D 
+              modeling of objects. To create the landscape of Furtwangen, Blender 
+              and the <a href="https://github.com/domlysz/BlenderGIS">BlenderGIS</a> project were 
+              used. With this, the landscape of Furtwangen could be created from GIS 
+              data as a mesh. The plugin also generated cubes at the points where 
+              buildings were recognized in the geographic information systems (GIS) 
+              data</p>
+              <img src="/static/images/scene.png" alt="Image of the HFU Scene in Unity" style="width: 100%;">
+          </div>
+        </div>
+      </div>
     </section>
+    <br>
+    <br>
+
+    <section id="Datasets" class="hero is-small">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Datasets</h2>
+            <div class="content has-text-justified">
+              <p>For the purpose of finetuning, it is necessary to generate datasets 
+                that can also be implemented on the real Furtwangen campus. Within a 
+                virtual scene, thousands of images of objects can be generated from 
+                all viewing directions in a few seconds. However, this is not 
+                possible with real scenes. There, considerably more time must be allowed 
+                to capture a building. Three data sets were created that reflect a 
+                different approach to collecting images in a real scenario.</p>
+            </div>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="vertical-align: top; padding: 20px; background-color: #1e1e1e; color: white; width: 50%; text-align: left;">
+                  <p ><strong style="color: white;">Scene-Datensatz</strong><br>
+                    - 280 Images<br>
+                    - Directly from the camera path
+                  </p>
+                </td>
+                <td style="vertical-align: top; padding: 20px; background-color: #1e1e1e; color: white; width: 50%;">
+                  <video width="100%" controls autoplay loop>
+                    <source src="./static/videos/sceneDataset.mp4" type="video/mp4">
+                    Dein Browser unterstützt kein HTML5-Video.
+                  </video>
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align: top; padding: 20px; background-color: #1e1e1e; color: white; width: 50%; text-align: left;">
+                  <p  ><strong style="color: white;">Surround</strong><br>
+                    - 280 Images<br>
+                    - Separate camera path around the individual buildings
+                  </p>
+                </td>
+                <td style="vertical-align: top; padding: 20px; background-color: #1e1e1e; color: white; width: 50%;">
+                  <video width="100%" controls autoplay loop>
+                    <source src="./static/videos/surroundDataset.mp4" type="video/mp4">
+                    Dein Browser unterstützt kein HTML5-Video.
+                  </video>
+                </td>
+                
+              </tr>
+              <tr>
+                <td style="vertical-align: top; padding: 20px; background-color: #1e1e1e; color: white; width: 50%; text-align: left;">
+                  <p ><strong style="color: white;">Big-Surround</strong><br>
+                    - 7000 Images<br>
+                    - Random placement in the vicinity of the building
+                  </p>
+                </td>
+                <td style="vertical-align: top; padding: 20px; background-color: #1e1e1e; color: white; width: 50%;">
+                  <video width="100%" controls autoplay loop>
+                    <source src="./static/videos/bigsurroundDataset.mp4" type="video/mp4">
+                    Dein Browser unterstützt kein HTML5-Video.
+                  </video>
+                </td>
+              </tr>
+            </table>
+            
+          
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image carousel_Diagrams -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+    
+          <section id="IMAGE_CAROUSEL_Diagrams" class="hero is-small" style="padding: 3rem;">
+      
+      
+      
+          </section>
+        </div>
+      </div>
+    </div>
     <!-- End image carousel -->
 
     <!-- Youtube video -->
@@ -229,10 +332,123 @@
     </section> -->
     <!-- End youtube video -->
 
-    <!-- Video carousel -->
-    <section id="VIDEO_CAROUSEL" class="hero is-small">
+    <section id="RESULTS" class="hero is-small" style="padding: 3rem;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Results</h2>
+            <div id="ABSTRACT" class="content has-text-justified">
+              <p class="content has-text-justified">The results show in qualitative and metric evaluations that the concept developed for this work using Mask R-CNN is superior to the other techniques for this application.</p>
+            
+              <h3>F1-score-Values</h3>
+      <table style="border-collapse: collapse; text-align: center;">
+        <thead>
+          <tr style="background-color: #00796B; color: white;">
+            <th style="padding: 8px; border: 1px solid #ddd;">Methode</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">No<br>Finetuning</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Scene</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Surround</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Big-<br>Surround</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;">Lerf lite</td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><b>0.484</b></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.533</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.568</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.536</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;">Feture-Splatting</td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><b>0.484</b></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.340</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.308</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.588</td>
+          </tr>
+          <tr >
+            <td style="padding: 8px; border: 1px solid #ddd;">ResNet + SAM</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.105</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.432</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.271</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.513</td>
+          </tr>
+          <tr style="background-color: #e0f2f1;">
+            <td style="padding: 8px; border: 1px solid #ddd;">Mask R-CNN</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.000</td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><b>0.951</b></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><b>0.842</b></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><b>0.951</b></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>IoU-Values</h3>
+      <table style="border-collapse: collapse; text-align: center;">
+        <thead>
+          <tr style="background-color: #00796B; color: white;">
+            <th style="padding: 8px; border: 1px solid #ddd;">Methode</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">No<br>Finetuning</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Scene</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Surround</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Big-<br>Surround</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;">Lerf lite</td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><b>0.022</b></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.003</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.003</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.184</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;">Feture-Splatting</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.013</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.000</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.000</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.338</td>
+          </tr>
+          <tr >
+            <td style="padding: 8px; border: 1px solid #ddd;">ResNet + SAM</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.000</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.000</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.000</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.002</td>
+          </tr>
+          <tr style="background-color: #e0f2f1;">
+            <td style="padding: 8px; border: 1px solid #ddd;">Mask R-CNN</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">0.000</td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><b>0.861</b></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><b>0.840</b></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><b>0.854</b></td>
+          </tr>
+        </tbody>
+      </table>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      
+
+      
+
     </section>
+
+    <!-- Video carousel -->
+    <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <section id="VIDEO_CAROUSEL" class="hero is-small">
+        </section>
+      </div>
+    </div>
+    </div>
     <!-- End video carousel -->
+
+    
 
     <!-- Paper poster -->
     <!-- <section id="PDF_PREVIEW" class="hero is-small is-light">
@@ -249,15 +465,18 @@
     <!--End paper poster -->
 
     <!--BibTex citation -->
-    <section id="BIBTEX" class="section" id="BibTeX">
+    <!-- <section id="BIBTEX" class="section" id="BibTeX">
       <div class="container is-max-desktop content">
         <h2 id="BIBTEX_TITLE" class="title">BibTeX</h2>
         <pre><code id="BIBTEX_CODE">BibTex Code Here</code></pre>
       </div>
-    </section>
+    </section> -->
     <!--End BibTex citation -->
 
     <div class="column is-full-width">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
       <h2 class="title is-3">References</h2>
       <div class="content has-text-justified">
           <p>
@@ -269,13 +488,18 @@
           <p>
             Mildenhall, Ben; Srinivasan, Pratul P.; Tancik, Matthew; Barron, Jonathan T.; Ramamoorthi, Ravi; Ng, Ren (2020): NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis. <a href="http://arxiv.org/pdf/2003.08934v2">http://arxiv.org/pdf/2003.08934v2</a>.
           </p>
-          <p>
-            Qin, Minghan; Li, Wanhua; Zhou, Jiawei; Wang, Haoqian; Pfister, Hanspeter (2023): LangSplat: 3D Language Gaussian Splatting. <a href="http://arxiv.org/pdf/2312.16084v2">http://arxiv.org/pdf/2312.16084v2</a>.
-          </p>
+          <p>He, Kaiming; Zhang, Xiangyu; Ren, Shaoqing; and Sun, Jian (2016): Deep Residual Learning for Image Recognition. 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR) (June 2016), 770–778. <a href="https://doi.org/10.1109/CVPR.2016.90">https://doi.org/10.1109/CVPR.2016.90</a></p>
           <p>
             Kirillov, Alexander; Mintun, Eric; Ravi, Nikhila; Mao, Hanzi; Rolland, Chloe; Gustafson, Laura et al. (2023): Segment Anything. <a href="http://arxiv.org/pdf/2304.02643">http://arxiv.org/pdf/2304.02643</a>.
           </p>
+          <p>Qiu, Ri-Zhao ; Yang, Ge; Zeng, Weijia; and Wang, Xiaolong (2024): Feature Splatting: Language-Driven Physics-Based Scene Synthesis and Editing. <a href="https://doi.org/10.48550/arXiv.2404.01223">https://doi.org/10.48550/arXiv.2404.01223</a></p>
+          <p>He, Kaiming; Gkioxari, Georgia; Dollár, Piotr; and Girshick, Ross (2018): Mask R-CNN. <a href="https://doi.org/10.48550/arXiv.1703.06870">https://doi.org/10.48550/arXiv.1703.06870</a></p>
+        </div>
+          </div>
+        </div>
       </div>
+    </div>
+
   </div>
 
     <footer class="footer">
